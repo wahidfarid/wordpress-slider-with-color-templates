@@ -1,0 +1,1 @@
+# wordpress-slider-with-color-templates
