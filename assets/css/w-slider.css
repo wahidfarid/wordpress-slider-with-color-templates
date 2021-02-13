@@ -14,9 +14,15 @@
 
  /* Custom */
 
-.swiper-container{
+.w-slider-container{
     height: 100%;
-    max-height: 500px;
+    /* max-height: 500px; */
+}
+.w-slider-container .swiper-wrapper{
+    height: calc(100% - 100px);
+}
+.swiper-scrollbar{
+    bottom: 100px !important;
 }
 .swiper-slide{
     background-size: contain;
@@ -34,4 +40,23 @@
 }
 .swiper-button-prev, .swiper-button-next{
     background-image: none !important;
+}
+
+.swiper-colorpicker{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+.swiper-colorpicker .color-button{
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    box-shadow: 0.125rem 0.125rem 0.125rem rgba(0,0,0,.2);
+    display: block;
+    cursor: pointer;
+    border: solid 2px #fff;
+}
+.swiper-colorpicker .color-button.active{
+    border-color: #CC0000;
 }

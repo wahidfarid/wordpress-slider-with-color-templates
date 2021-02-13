@@ -167,64 +167,92 @@ class wSlider extends Widget_Base {
 		// $this->add_inline_editing_attributes( 'title', 'none' );
 		// $this->add_inline_editing_attributes( 'description', 'basic' );
 		// $this->add_inline_editing_attributes( 'content', 'advanced' );
+		$wslider_hash = get_post_meta( get_post()->ID, '_wslider_hash', true );
+
+		$wslider_hash = json_decode($wslider_hash);
+		foreach( $wslider_hash as $key => $value) {
+			$ids = explode(',', $value->{'images'});
+			if(count($ids)>0){
+				$array_of_images = array();
+				foreach ($ids as $attachment_id) {
+					$img = wp_get_attachment_image_src($attachment_id, 'large');
+					if($img){
+						$array_of_images[] = esc_url($img[0]);
+					}
+				}
+				$wslider_hash->{$key}->{'image_urls'} = $array_of_images;
+			}
+		};
+
+		$wslider_hash = json_encode($wslider_hash);
 		?>
+
+		<script>
+			const wsliderSource = JSON.parse(`<?php echo $wslider_hash ?>`);
+		</script>
+
 		<!-- <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?><?php echo wp_kses( $settings['title'], array() ); ?></h2>
 		<div <?php echo $this->get_render_attribute_string( 'description' ); ?><?php echo wp_kses( $settings['description'], array() ); ?></div>
 		<div <?php echo $this->get_render_attribute_string( 'content' ); ?><?php echo wp_kses( $settings['content'], array() ); ?></div> -->
 
+		
 
         <!-- Slider main container -->
         <div class="w-slider-container swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/1.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/2.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/3.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/4.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/5.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/6.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/7.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/8.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/9.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/10.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/11.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/12.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/13.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/14.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/15.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/16.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/17.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/18.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/19.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/20.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/21.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/22.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/23.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/24.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/25.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/26.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/27.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/28.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/29.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/30.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/31.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/32.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/33.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/34.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/35.png)"></div>
-            <div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/36.png)"></div>
-            
-        </div>
-        <!-- If we need pagination -->
-        <!-- <div class="swiper-pagination w-slider-pagination"></div> -->
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/1.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/2.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/3.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/4.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/5.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/6.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/7.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/8.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/9.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/10.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/11.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/12.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/13.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/14.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/15.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/16.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/17.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/18.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/19.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/20.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/21.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/22.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/23.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/24.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/25.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/26.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/27.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/28.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/29.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/30.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/31.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/32.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/33.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/34.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/35.png)"></div>
+				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/36.png)"></div>
+				
+			</div>
+			<!-- If we need pagination -->
+			<!-- <div class="swiper-pagination w-slider-pagination"></div> -->
 
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev w-slider-button-prev" onclick="swiper.slidePrev()"></div>
-        <div class="swiper-button-next w-slider-button-next"></div>
+			<!-- If we need navigation buttons -->
+			<div class="swiper-button-prev w-slider-button-prev" onclick="swiper.slidePrev()"></div>
+			<div class="swiper-button-next w-slider-button-next"></div>
 
-        <!-- If we need scrollbar -->
-        <div class="swiper-scrollbar w-slider-scrollbar"></div>
+			<!-- If we need scrollbar -->
+			<div class="swiper-scrollbar w-slider-scrollbar"></div>
+
+			<!-- Color Picker -->
+			<div class="swiper-colorpicker">
+			</div>
         </div>
 
 
@@ -274,9 +302,41 @@ class wSlider extends Widget_Base {
                 jQuery(".w-slider-button-next").on("click", function(){
                     swiper.animating=false;
                     swiper.slideNext();
-                })
+                });
 
-            });
+
+				Object.entries(wsliderSource).forEach( (colorOption, index) => {
+					const colorName = colorOption[0];
+					const colorData = colorOption[1];
+
+					var colorButton = `
+					<div class="color-button `+ (index == 0 ? "active" : "") +`" style="background-color: `+colorData.color+`;" onclick="pickColor('`+colorName+`', event)">
+					</div>
+					`;
+
+					jQuery(".swiper-colorpicker").append(colorButton);
+				});
+
+			});
+			
+			function pickColor(colorName, event){
+				
+				//deselect all active
+				jQuery(".color-button").removeClass("active");
+				
+				// make new active
+				jQuery(event.srcElement).addClass("active");
+
+				// clear slides
+				jQuery(".w-slider-container .swiper-wrapper").html("");
+
+				// insert slides
+				wsliderSource[colorName].image_urls.forEach(url =>{
+					var slide = `<div class="swiper-slide" style="background-image: url(`+url+`)"></div>`;
+					jQuery(".swiper-wrapper").append(slide); 
+				});
+				swiper.update();
+			};
         </script>
 
 
