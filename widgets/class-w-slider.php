@@ -280,6 +280,8 @@ class wSlider extends Widget_Base {
 					jQuery(".swiper-colorpicker").append(colorButton);
 				});
 
+				pickColor(jQuery(".color-button").first().data('color'), null);
+
 			});
 			
 			function pickColor(colorName, event){
@@ -297,12 +299,10 @@ class wSlider extends Widget_Base {
 				// insert slides
 				wsliderSource[colorName].image_urls.forEach(url =>{
 					var slide = `<div class="swiper-slide" style="background-image: url(`+url+`)"></div>`;
-					jQuery(".swiper-wrapper").append(slide); 
+					jQuery(".w-slider-container .swiper-wrapper").append(slide); 
 				});
 				swiper.update();
 			};
-
-			pickColor(jQuery(".color-button").first().data('color'), null);
         </script>
 
 
