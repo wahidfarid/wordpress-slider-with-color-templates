@@ -202,43 +202,6 @@ class wSlider extends Widget_Base {
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<!-- Slides -->
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/1.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/2.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/3.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/4.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/5.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/6.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/7.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/8.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/9.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/10.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/11.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/12.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/13.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/14.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/15.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/16.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/17.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/18.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/19.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/20.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/21.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/22.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/23.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/24.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/25.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/26.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/27.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/28.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/29.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/30.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/31.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/32.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/33.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/34.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/35.png)"></div>
-				<div class="swiper-slide" style="background-image: url(http://toyotaelobour.com/wp-content/uploads/2021/02/36.png)"></div>
-				
 			</div>
 			<!-- If we need pagination -->
 			<!-- <div class="swiper-pagination w-slider-pagination"></div> -->
@@ -310,7 +273,7 @@ class wSlider extends Widget_Base {
 					const colorData = colorOption[1];
 
 					var colorButton = `
-					<div class="color-button `+ (index == 0 ? "active" : "") +`" style="background-color: `+colorData.color+`;" onclick="pickColor('`+colorName+`', event)">
+					<div class="color-button `+ (index == 0 ? "active" : "") +`" style="background-color: `+colorData.color+`;" onclick="pickColor('`+colorName+`', event)" data-color="`+colorName+`">
 					</div>
 					`;
 
@@ -325,7 +288,8 @@ class wSlider extends Widget_Base {
 				jQuery(".color-button").removeClass("active");
 				
 				// make new active
-				jQuery(event.srcElement).addClass("active");
+				if(event)
+					jQuery(event.srcElement).addClass("active");
 
 				// clear slides
 				jQuery(".w-slider-container .swiper-wrapper").html("");
@@ -337,6 +301,8 @@ class wSlider extends Widget_Base {
 				});
 				swiper.update();
 			};
+
+			pickColor(jQuery(".color-button").first().data('color'), null);
         </script>
 
 

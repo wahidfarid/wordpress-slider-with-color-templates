@@ -21,17 +21,17 @@
 .w-slider-container .swiper-wrapper{
     height: calc(100% - 100px);
 }
-.swiper-scrollbar{
+.w-slider-container .swiper-scrollbar{
     bottom: 100px !important;
 }
-.swiper-slide{
+.w-slider-container .swiper-slide{
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #fff;
     opacity: 0 !important;
 }
-.swiper-slide.swiper-slide-active{
+.w-slider-container .swiper-slide.swiper-slide-active{
     opacity: 1 !important;
 }
 .swiper-button-prev:after,  .swiper-button-next:after{
