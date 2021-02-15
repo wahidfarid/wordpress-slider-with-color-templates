@@ -47,10 +47,11 @@
     justify-content: center;
     align-items: center;
     height: 80px;
+    margin-top: 15px;
 }
 .swiper-colorpicker .color-button{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin: 15px;
     box-shadow: 0.125rem 0.125rem 0.125rem rgba(0,0,0,.2);
     display: block;
