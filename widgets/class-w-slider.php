@@ -207,11 +207,11 @@ class wSlider extends Widget_Base {
 			<!-- <div class="swiper-pagination w-slider-pagination"></div> -->
 
 			<!-- If we need navigation buttons -->
-			<div class="swiper-button-prev w-slider-button-prev" onclick="swiper.slidePrev()"></div>
+			<div class="swiper-button-prev w-slider-button-prev"></div>
 			<div class="swiper-button-next w-slider-button-next"></div>
 
 			<!-- If we need scrollbar -->
-			<div class="swiper-scrollbar w-slider-scrollbar"></div>
+			<!-- <div class="swiper-scrollbar w-slider-scrollbar"></div> -->
 
 			<!-- Color Picker -->
 			<div class="swiper-colorpicker">
@@ -220,53 +220,9 @@ class wSlider extends Widget_Base {
 
 
         <script>
-            var swiper;
+            var wswiper;
             document.addEventListener("DOMContentLoaded", function(event) { 
-                swiper = new Swiper('.w-slider-container', {
-                // Optional parameters
-                loop: true,
-                centeredSlides: true,
-                initialSlide: 2,
-                effect: 'fade',
-                speed: 10,
-                allowTouchMove: false,
-
-                observer: true,
-                observeParents: true,
-                parallax:true,
-
-
-                // If we need pagination
-                // pagination: {
-                //     el: '.w-slider-pagination',
-                // },
-
-                // Navigation arrows
-                navigation: {
-                    nextEl: '.w-slider-button-next',
-                    prevEl: '.w-slider-button-prev',
-                },
-
-                // And if we need scrollbar
-                scrollbar: {
-                    el: '.w-slider-scrollbar',
-                    draggable: true,
-                    snapOnRelease: true,
-                    hide: false,
-                    dragSize: 50
-                },
-                });
-                
-
-                jQuery(".w-slider-button-prev").on("click", function(){
-                    swiper.animating=false;
-                    swiper.slidePrev();
-                });
-                jQuery(".w-slider-button-next").on("click", function(){
-                    swiper.animating=false;
-                    swiper.slideNext();
-                });
-
+				setTimeout(() => {
 
 				Object.entries(wsliderSource).forEach( (colorOption, index) => {
 					const colorName = colorOption[0];
@@ -279,9 +235,56 @@ class wSlider extends Widget_Base {
 
 					jQuery(".swiper-colorpicker").append(colorButton);
 				});
+					
+                wswiper = new Swiper('.w-slider-container', {
+                // Optional parameters
+				// slidesPerView: 1,
+                loop: true,
+                // centeredSlides: true,
+                // initialSlide: 2,
+                effect: 'fade',
+                speed: 10,
+                allowTouchMove: false,
 
+                // observer: true,
+                // observeParents: true,
+                // parallax:true,
+
+
+                // If we need pagination
+                // pagination: {
+                //     el: '.w-slider-pagination',
+                // },
+
+                // Navigation arrows
+                // navigation: {
+                //     nextEl: '.w-slider-button-next',
+                //     prevEl: '.w-slider-button-prev',
+                // },
+
+                // And if we need scrollbar
+                // scrollbar: {
+                //     el: '.w-slider-scrollbar',
+                //     draggable: true,
+                //     snapOnRelease: true,
+                //     hide: true,
+                //     dragSize: 50
+                // },
+
+                });
+                
 				pickColor(jQuery(".color-button").first().data('color'), null);
 
+                jQuery(".w-slider-button-prev").on("click", function(){
+                    // wswiper.animating=false;
+                    wswiper.slidePrev();
+                });
+                jQuery(".w-slider-button-next").on("click", function(){
+                    // wswiper.animating=false;
+                    wswiper.slideNext();
+                });
+
+				}, 500);
 			});
 			
 			function pickColor(colorName, event){
@@ -294,14 +297,16 @@ class wSlider extends Widget_Base {
 					jQuery(event.srcElement).addClass("active");
 
 				// clear slides
-				jQuery(".w-slider-container .swiper-wrapper").html("");
+				wswiper.removeAllSlides();
 
 				// insert slides
 				wsliderSource[colorName].image_urls.forEach(url =>{
 					var slide = `<div class="swiper-slide" style="background-image: url(`+url+`)"></div>`;
-					jQuery(".w-slider-container .swiper-wrapper").append(slide); 
+					wswiper.appendSlide(slide);
 				});
-				swiper.update();
+				
+				wswiper.slideTo(0);
+				wswiper.update();
 			};
         </script>
 

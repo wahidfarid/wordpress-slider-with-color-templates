@@ -410,7 +410,6 @@ function wslider_build_meta_box( $post ){
 				};
 			});
 			jQuery("#wslider-hash").attr("value", JSON.stringify(hash));
-			console.log("hash is", hash);
 		}
 		update_wslider_meta();
 		</script>
