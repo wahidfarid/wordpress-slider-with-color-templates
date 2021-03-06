@@ -35,11 +35,18 @@
     opacity: 1 !important;
 }
 .swiper-button-prev:after,  .swiper-button-next:after{
-    font-size: 32px !important;
-    color: #CC0000 !important;
+    content: unset;
 }
 .swiper-button-prev, .swiper-button-next{
     background-image: none !important;
+    width: 52px;
+}
+.swiper-button-prev svg, .swiper-button-next svg{
+    fill: #CC0000;
+    height: 52px;
+}
+.swiper-button-prev:hover, .swiper-button-next:hover{
+    opacity: 0.5;
 }
 
 .swiper-colorpicker{
