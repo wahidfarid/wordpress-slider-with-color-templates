@@ -208,10 +208,10 @@ class wSlider extends Widget_Base {
 
 			<!-- If we need navigation buttons -->
 			<div class="swiper-button-prev w-slider-button-prev">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="-192.2 495.6 26 26"><path d="M-173.3 511l-1.4 1.4 3.2 3.2h-10.9c-1.8 0-3.3-1.5-3.3-3.3 0-1.8 1.5-3.4 3.3-3.4h2.9v-2h-2.9c-2.9 0-5.3 2.4-5.3 5.3s2.4 5.2 5.3 5.2h10.9l-3.2 3.2 1.4 1.4 5.7-5.6-5.7-5.4z"></path></svg>						
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="-196.2 500 32 32"><path d="M-173.3 511l-1.4 1.4 3.2 3.2h-10.9c-1.8 0-3.3-1.5-3.3-3.3 0-1.8 1.5-3.4 3.3-3.4h2.9v-2h-2.9c-2.9 0-5.3 2.4-5.3 5.3s2.4 5.2 5.3 5.2h10.9l-3.2 3.2 1.4 1.4 5.7-5.6-5.7-5.4z"></path></svg>						
 			</div>
 			<div class="swiper-button-next w-slider-button-next">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108.2 495.6 26 26"><path d="M-87.7 512.3c0-2.9-2.4-5.3-5.3-5.3h-2.9v2h2.9c1.8 0 3.3 1.5 3.3 3.4 0 1.8-1.5 3.3-3.3 3.3h-10.9l3.2-3.2-1.4-1.4-5.7 5.7 5.7 5.6 1.4-1.4-3.2-3.2H-93c2.9-.2 5.3-2.5 5.3-5.5 0 .1 0 .1 0 0z"></path></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="-114.2 501 32 32"><path d="M-87.7 512.3c0-2.9-2.4-5.3-5.3-5.3h-2.9v2h2.9c1.8 0 3.3 1.5 3.3 3.4 0 1.8-1.5 3.3-3.3 3.3h-10.9l3.2-3.2-1.4-1.4-5.7 5.7 5.7 5.6 1.4-1.4-3.2-3.2H-93c2.9-.2 5.3-2.5 5.3-5.5 0 .1 0 .1 0 0z"></path></svg>
 			</div>
 
 			<!-- If we need scrollbar -->
