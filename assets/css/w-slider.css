@@ -34,10 +34,10 @@
 .w-slider-container .swiper-slide.swiper-slide-active{
     opacity: 1 !important;
 }
-.swiper-button-prev:after,  .swiper-button-next:after{
+.w-slider-container .swiper-button-prev:after,.w-slider-container  .swiper-button-next:after{
     content: unset;
 }
-.swiper-button-prev, .swiper-button-next{
+.w-slider-container .swiper-button-prev,.w-slider-container .swiper-button-next{
     background-image: none !important;
     width: 52px;
     height: 52px;
@@ -48,13 +48,13 @@
     align-items: center;
     transition-duration: 0.3s;
 }
-.swiper-button-prev svg, .swiper-button-next svg{
+.w-slider-container .swiper-button-prev svg, .w-slider-container .swiper-button-next svg{
     fill: #fff;
     height: 32px;
     width: 32px;
     margin-top: 7px;
 }
-.swiper-button-prev:hover, .swiper-button-next:hover{
+.w-slider-container .swiper-button-prev:hover,.w-slider-container .swiper-button-next:hover{
     /* opacity: 0.5; */
     background-color: #CC0000;
 }
